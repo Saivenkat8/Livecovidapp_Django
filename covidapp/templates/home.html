@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<style type="text/css">
+	.container{
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+</style>
+<body style="background-color: black">
+	
+
+	<h1 style="color: white; text-align: center;"><span style="color: red">LIVE COVID-19</span> WORLDWIDE DATA</h1>
+	<form method="post" class="d-flex justify-content-center align-items-center" action="" style="margin-top: 50px">
+		{% csrf_token %}
+		<select class="form-control" style="width: 200px" name="selectedcountry">
+			{% for country in countrylist %}
+			<option>{{ country }}</option>
+			{% endfor %}
+		</select>
+		<input type="submit" class="btn btn-danger" name="">
+	</form>
+
+	<h1 style="margin-top: 50px; color: white; text-align: center;"> {{ selectedcountry }} </h1>
+	<div class="d-flex justify-content-center align-items-center">
+		<div class="container" style="border-radius: 10px; background-color: skyblue; height: 100px; width: 200px">
+			<h1 style="text-align: center; color: white;"> {{ new }} </h1>
+			<p style="text-align: center; color: white;"> new </p>
+		</div>
+		<div class="container" style="border-radius: 10px; background-color: yellow; height: 100px; width: 200px">
+			<h1 style="text-align: center; color: black;"> {{ active }} </h1>
+			<p style="text-align: center; color: black;"> active </p>
+		</div>
+		<div class="container" style="border-radius: 10px; background-color: red; height: 100px; width: 200px">
+			<h1 style="text-align: center; color: white;"> {{ critical }} </h1>
+			<p style="text-align: center; color: white;"> critical </p>
+		</div>
+	</div>
+	<div class="d-flex justify-content-center align-items-center">
+		<div class="container" style="border-radius: 10px; background-color: green; height: 100px; width: 200px">
+			<h1 style="text-align: center; color: white;"> {{ recovered }} </h1>
+			<p style="text-align: center; color: white;"> recovered </p>
+		</div>
+		<div class="container" style="border-radius: 10px; background-color: brown; height: 100px; width: 200px">
+			<h1 style="text-align: center; color: white;"> {{ deaths }} </h1>
+			<p style="text-align: center; color: white;"> deaths </p>
+		</div>
+		<div class="container" style="border-radius: 10px; background-color: orange; height: 100px; width: 200px">
+			<h1 style="text-align: center; color: white;"> {{ total }}</h1>
+			<p style="text-align: center; color: white;"> total </p>
+		</div>
+	</div>
+	<p style="margin-top: 130px; color: grey; text-align: center;">Developed by <span style="color: white">Bomma</span></p>
+	
+	
+</body>
+</html>
